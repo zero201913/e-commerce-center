@@ -11,6 +11,10 @@
     <packaging>pom</packaging>
 
     <name>e-commerce-center</name>
+    <!--  列出父工程管理的子项  -->
+    <modules>
+        <module>member-provider-service-10000</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
