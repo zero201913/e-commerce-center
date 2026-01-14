@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zero.ecommerce.dao.MemberDao">
+
+    <resultMap id="Member" type="cn.zero.ecommerce.entity.Member">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <id column="name" property="name" jdbcType="VARCHAR"/>
+        <id column="pwd" property="pwd" jdbcType="VARCHAR"/>
+        <id column="mobile" property="mobile" jdbcType="VARCHAR"/>
+        <id column="email" property="email" jdbcType="VARCHAR"/>
+        <id column="gender" property="gender" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="selectMemberById" resultType="cn.zero.ecommerce.entity.Member" parameterType="Long"
+            resultMap="Member">
+        select *
+        from member
+        where id = #{id}
+    </select>
+    <insert id="insertMember" parameterType="Member" useGeneratedKeys="true" keyProperty="id">
+        insert into member (name, pwd, mobile, email, gender)
+        values (#{name}, MD5(#{pwd}), #{mobile}, #{email}, #{gender})
+    </insert>
+</mapper>
