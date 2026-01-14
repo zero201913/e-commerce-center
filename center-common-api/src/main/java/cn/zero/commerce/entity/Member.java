@@ -1,4 +1,4 @@
-package cn.zero.ecommerce.entity;
+package cn.zero.commerce.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

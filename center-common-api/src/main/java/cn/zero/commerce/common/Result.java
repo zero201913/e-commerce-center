@@ -1,4 +1,4 @@
-package cn.zero.ecommerce.common;
+package cn.zero.commerce.common;
 
 /**
  * @author 韩顺平

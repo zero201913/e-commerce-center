@@ -14,6 +14,8 @@
     <!--  列出父工程管理的子项  -->
     <modules>
         <module>member-provider-service-10000</module>
+        <module>member-consumer-service-80</module>
+        <module>center-common-api</module>
     </modules>
 
     <properties>

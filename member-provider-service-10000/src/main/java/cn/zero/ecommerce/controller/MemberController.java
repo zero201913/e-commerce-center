@@ -20,7 +20,7 @@ public class MemberController {
 
     @PostMapping
     public Result save(@RequestBody Member member) {
-        log.info("存储会员信息：{}",member);
+        log.info("member-provider-service-1000: 存储会员信息 {}",member);
         int res = memberService.insertMember(member);
         if (res > 0) {
             return Result.success("插入会员成功", res);
@@ -31,7 +31,7 @@ public class MemberController {
 
     @GetMapping("/{id}")
     public Result get(@PathVariable Long id) {
-        log.info("查询会员信息：{}",id);
+        log.info("member-provider-service-1000: 查询会员信息 {}",id);
         Member member = memberService.selectMemberById(id);
         if (member != null) {
             return Result.success(member);
