@@ -11,6 +11,7 @@ import javax.annotation.Resource;
 @RestController
 @Slf4j
 public class MemberConsumerController {
+    //后面会修改为服务调用的模块地址
     public static final String MEMBER_PROVIDER_SERVICE_URL = "http://localhost:10000";
 
     @Resource

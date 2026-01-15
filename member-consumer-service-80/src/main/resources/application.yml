@@ -4,3 +4,11 @@ server:
 spring:
   application:
     name: member-service-consumer-80
+
+
+eureka:
+  client:
+    register-with-eureka: true #注册到eureka
+    fetch-registry: true #检索服务信息
+    service-url:
+      defaultZone: http://localhost:9001/eureka

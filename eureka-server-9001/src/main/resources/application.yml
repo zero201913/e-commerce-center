@@ -1,0 +1,14 @@
+server:
+  port: 9001
+#eureka
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false #不向注册中心配置自己
+    fetch-registry: false #自己是注册中心，无需检索服务
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka #查询，注册的地址
+  #server:
+    #enable-self-preservation: false # 自我保护机制
+    #eviction-interval-timer-in-ms: 10000 #心跳检测间隔时长/毫秒

@@ -16,6 +16,7 @@
         <module>member-provider-service-10000</module>
         <module>member-consumer-service-80</module>
         <module>center-common-api</module>
+        <module>eureka-server-9001</module>
     </modules>
 
     <properties>

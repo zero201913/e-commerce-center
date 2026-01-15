@@ -1,6 +1,6 @@
-package cn.zero.ecommerce.dao;
+package cn.zero.commerce.dao;
 
-import cn.zero.ecommerce.entity.Member;
+import cn.zero.commerce.entity.Member;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

@@ -1,10 +1,9 @@
-package cn.zero.ecommerce.controller;
+package cn.zero.commerce.controller;
 
-import cn.zero.ecommerce.common.Result;
-import cn.zero.ecommerce.entity.Member;
-import cn.zero.ecommerce.service.MemberService;
+import cn.zero.commerce.common.Result;
+import cn.zero.commerce.entity.Member;
+import cn.zero.commerce.service.MemberService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -16,7 +15,6 @@ public class MemberController {
     @Resource
     private MemberService memberService;
 
-    // TODO 没有测试接口
 
     @PostMapping
     public Result save(@RequestBody Member member) {

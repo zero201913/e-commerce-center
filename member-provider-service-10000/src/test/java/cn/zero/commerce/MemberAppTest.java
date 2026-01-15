@@ -1,7 +1,7 @@
-package cn.zero.ecommerce;
+package cn.zero.commerce;
 
-import cn.zero.ecommerce.dao.MemberDao;
-import cn.zero.ecommerce.entity.Member;
+import cn.zero.commerce.dao.MemberDao;
+import cn.zero.commerce.entity.Member;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
