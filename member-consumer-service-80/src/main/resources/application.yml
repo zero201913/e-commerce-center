@@ -11,4 +11,4 @@ eureka:
     register-with-eureka: true #注册到eureka
     fetch-registry: true #检索服务信息
     service-url:
-      defaultZone: http://localhost:9001/eureka
+      defaultZone: http://eureka9001.com:9001/eureka, http://eureka9002.com:9002/eureka

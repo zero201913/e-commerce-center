@@ -3,6 +3,7 @@ package cn.zero.commerce.controller;
 import cn.zero.commerce.common.Result;
 import cn.zero.commerce.entity.Member;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -11,8 +12,9 @@ import javax.annotation.Resource;
 @RestController
 @Slf4j
 public class MemberConsumerController {
-    //后面会修改为服务调用的模块地址
-    public static final String MEMBER_PROVIDER_SERVICE_URL = "http://localhost:10000";
+    //更新为服务提供方的集群名称，目前有两个 Availability Zones
+    //member-provider-service-10000, member-provider-service-10001
+    public static final String MEMBER_PROVIDER_SERVICE_URL = "http://MEMBER-PROVIDER-SERVICE";
 
     @Resource
     private RestTemplate restTemplate;

@@ -14,9 +14,11 @@
     <!--  列出父工程管理的子项  -->
     <modules>
         <module>member-provider-service-10000</module>
+        <module>member-provider-service-10001</module>
         <module>member-consumer-service-80</module>
         <module>center-common-api</module>
         <module>eureka-server-9001</module>
+        <module>eureka-server-9002</module>
     </modules>
 
     <properties>

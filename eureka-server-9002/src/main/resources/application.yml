@@ -1,14 +1,14 @@
 server:
-  port: 9001
+  port: 9002
 #eureka
 eureka:
   instance:
-    hostname: eureka9001.com
+    hostname: eureka9002.com
   client:
     register-with-eureka: false #不向注册中心配置自己
     fetch-registry: false #自己是注册中心，无需检索服务
     service-url:
-      defaultZone: http://eureka9002.com:9002/eureka #查询，注册的地址
-  #server:
+      defaultZone: http://eureka9001.com:9001/eureka #注册到eureka9001
+    #server:
     #enable-self-preservation: false # 自我保护机制
     #eviction-interval-timer-in-ms: 10000 #心跳检测间隔时长/毫秒
