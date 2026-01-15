@@ -3,6 +3,7 @@ package cn.zero.commerce.controller;
 import cn.zero.commerce.common.Result;
 import cn.zero.commerce.entity.Member;
 import cn.zero.commerce.service.MemberService;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,10 +16,10 @@ public class MemberController {
     @Resource
     private MemberService memberService;
 
-
+    @ApiOperation(value = "保存会员信息", notes = "存储新的会员信息")
     @PostMapping
     public Result save(@RequestBody Member member) {
-        log.info("member-provider-service-10000: 存储会员信息 {}",member);
+        log.info("member-provider-service-10000: 存储会员信息 {}", member);
         int res = memberService.insertMember(member);
         if (res > 0) {
             return Result.success("插入会员成功10000", res);
@@ -27,12 +28,13 @@ public class MemberController {
         }
     }
 
+    @ApiOperation(value = "获取会员信息", notes = "根据ID获取会员详细信息")
     @GetMapping("/{id}")
     public Result get(@PathVariable Long id) {
-        log.info("member-provider-service-10000: 查询会员信息 {}",id);
+        log.info("member-provider-service-10000: 查询会员信息 {}", id);
         Member member = memberService.selectMemberById(id);
         if (member != null) {
-            return Result.success("查询会员成功10000",member);
+            return Result.success("查询会员成功10000", member);
         } else {
             return Result.error("404", "会员不存在");
         }

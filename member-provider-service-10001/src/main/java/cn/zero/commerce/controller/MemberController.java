@@ -3,6 +3,7 @@ package cn.zero.commerce.controller;
 import cn.zero.commerce.common.Result;
 import cn.zero.commerce.entity.Member;
 import cn.zero.commerce.service.MemberService;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +18,7 @@ public class MemberController {
 
 
     @PostMapping
+    @ApiOperation(value = "保存会员信息", notes = "存储新的会员信息")
     public Result save(@RequestBody Member member) {
         log.info("member-provider-service-10001: 存储会员信息 {}",member);
         int res = memberService.insertMember(member);
@@ -28,6 +30,7 @@ public class MemberController {
     }
 
     @GetMapping("/{id}")
+    @ApiOperation(value = "获取会员信息", notes = "根据ID获取会员详细信息")
     public Result get(@PathVariable Long id) {
         log.info("member-provider-service-10001: 查询会员信息 {}",id);
         Member member = memberService.selectMemberById(id);
