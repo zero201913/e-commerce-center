@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @Slf4j
+@RequestMapping("/consume")
 public class MemberConsumerController {
     // 更新为服务提供方的集群名称，目前有两个 Availability Zones
     // member-provider-service-10000, member-provider-service-10001
