@@ -19,6 +19,8 @@
         <module>center-common-api</module>
         <module>eureka-server-9001</module>
         <module>eureka-server-9002</module>
+        <module>consumer-openfeign-80</module>
+        <module>consumer-openfeign-80</module>
     </modules>
 
     <properties>

@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @RequestMapping("/member")
@@ -32,6 +33,14 @@ public class MemberController {
     @GetMapping("/{id}")
     @ApiOperation(value = "获取会员信息", notes = "根据ID获取会员详细信息")
     public Result get(@PathVariable Long id) {
+
+        //模拟超时5秒
+//        try {
+//            TimeUnit.SECONDS.sleep(5);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+
         log.info("member-provider-service-10001: 查询会员信息 {}",id);
         Member member = memberService.selectMemberById(id);
         if (member != null) {
