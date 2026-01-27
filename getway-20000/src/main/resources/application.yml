@@ -1,0 +1,48 @@
+server:
+  port: 20000
+spring:
+  application:
+    name: getway-20000
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true #启用服务发现 discovery client
+      routes: #配置路由，可以配置多个路由
+        - id: member_route01
+          #url=uri+path
+          #匹配后提供服务的路由地址：也可以是外网
+          #uri: http://localhost:10000
+          #指定eureka服务名小写
+          #默认轮询算法 loadbalancer
+          uri: lb://member-provider-service
+          predicates: #可以有多种形式的断言
+            - Path=/member/**
+            #- After=2026-01-26T21:28:00.000+08:00[Asia/Shanghai]
+            #- Before=2026-01-26T21:28:00.000+08:00[Asia/Shanghai]
+            #- Between=2026-01-26T21:28:00.000+08:00[Asia/Shanghai],2026-01-27T21:28:00.000+08:00[Asia/Shanghai]
+            #- Cookie=user, zero
+            #- Header=X-Request-Id, hello
+            #- Host=**.zero.**
+            #- Method=GET,POST
+            #- Query=email, [\w-]+@([a-zA-Z]+\.)+[a-zA-Z]+
+            #- RemoteAddr=127.0.0.1 #指定调用者的地址
+            #- Weight=group1, 2 #权重设置
+          #filters:
+            #- AddRequestParameter=color, blue
+        - id: member_route02
+          uri: http://www.baidu.com
+          predicates:
+            - Path=/
+            #- Weight=group1, 8 #权重设置
+
+
+# TODO 123
+eureka:
+  instance:
+    hostname: gateway-service
+  client:
+    register-with-eureka: true #注册到eureka
+    fetch-registry: true #检索服务信息
+    service-url:
+      defaultZone: http://eureka9001.com:9001/eureka, http://eureka9002.com:9002/eureka

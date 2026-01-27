@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.concurrent.TimeUnit;
 
 @RestController
@@ -32,7 +33,7 @@ public class MemberController {
 
     @GetMapping("/{id}")
     @ApiOperation(value = "获取会员信息", notes = "根据ID获取会员详细信息")
-    public Result get(@PathVariable Long id) {
+    public Result get(@PathVariable Long id, HttpServletRequest request) {
 
         //模拟超时5秒
 //        try {
@@ -40,8 +41,9 @@ public class MemberController {
 //        } catch (InterruptedException e) {
 //            throw new RuntimeException(e);
 //        }
-
+        String color = request.getParameter("color");
         log.info("member-provider-service-10001: 查询会员信息 {}",id);
+        log.info("member-provider-service-10000: 附加的gateway filter信息 {}", color);
         Member member = memberService.selectMemberById(id);
         if (member != null) {
             return Result.success("查询会员成功10001",member);
